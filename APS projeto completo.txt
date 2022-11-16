@@ -1,0 +1,47 @@
+
+def km_litros(x):
+    litros = x / 5.75 
+    result = litros_co2 (litros)
+    return result
+def litros_co2(y):
+    result = ((y * 0.82) * 0.75) * 3.7 
+    return result
+
+km = float(input("Digite a kilometragem viajada pela empresa no ano: "))
+kg_viagem = km_litros (km)
+
+e_movel = float (input("Digite quantos litros de combustível é gasto anualmente com combustão estacionária: ")) 
+kg_movel = litros_co2(e_movel)
+
+energia = float (input("Digite quantos kwh de energia a empresa gastou no ano:"))
+c_energia = (energia * 1000) / 8890 
+kg_energia = litros_co2 (c_energia) 
+
+km_funci = float (input("Digite a quilometragem percorrida paga de seus funcionários no ano: "))
+kg_funcionario = km_litros (km_funci) 
+
+eletro = float (input("Digite quantos kwh de energia foi gasta por emissões fugitivas no ano: "))
+c_eletro = (eletro * 1000) / 8890
+kg_eletros = litros_co2 (c_eletro)
+
+pessoas = int(input("Digite a quantidade de funcionários da empresa: "))
+kg_residuos = pessoas * 190
+
+entregas = float(input("Digite a quilometragem percorrida de entregas feitas ou serviços realizados no ano: "))
+kg_entregas = km_litros(entregas)
+
+indice = kg_viagem + kg_movel + kg_energia + kg_funcionario + kg_eletros + kg_entregas + kg_residuos
+print ("O índice de emissão de carbono pelo seu empreendimento foi de: " , indice , "kg, = " , indice // 1000 , "toneladas")
+
+compensamento = indice // 1000
+round (compensamento)
+print("A empresa precisa de " , compensamento + 1 , "créditos de carbono para fazer sua compensação.")
+
+creditos = int(input("Digite a quantidade de créditos gerados ou concedidos a empresa: "))
+lucros = (creditos - compensamento) * 12 
+print("O lucro do emprevendimento com compra e venda de créditos de carbono no ano foi de ", lucros , "Reais. Restando" , creditos - compensamento, "créditos.")
+
+
+
+
+
